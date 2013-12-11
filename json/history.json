@@ -2,56 +2,56 @@
     "fr": {
         "Slide": [
             {
-                "title": "",
-                "Content": "",
-                "background": "",
-                "next": ""
+            	"id": 1,
+                "title": "Titre de la slide 1",
+                "content": "Content, blablabla",
+                "background": "assets/img/history-1.jpg"
             },
             {
-                "title": "",
-                "Content": "",
-                "background": "",
-                "next": ""
+            	"id": 2,
+                "title": "Titre de la slide 2",
+                "content": "Content, blablabla",
+                "background": "assets/img/history-2.jpg"
             },
             {
-                "title": "",
-                "Content": "",
-                "background": "",
-                "next": ""
+            	"id" : 3,
+                "title": "Titre de la slide 3",
+                "content": "Content, blablabla",
+                "background": "assets/img/history-3.jpg"
             },
             {
-                "title": "",
-                "Content": "",
-                "background": "",
-                "next": ""
+            	"id": 4,
+                "title": "Titre de la slide 4",
+                "content": "Content, blablabla",
+                "background": "assets/img/history-4.jpg"
             }
         ]
     },
     "en": {
         "Slide": [
             {
+            	"id": 1,
                 "title": "",
-                "Content": "",
-                "background": "",
-                "next": ""
+                "content": "",
+                "background": "assets/img/history-1.jpg"
             },
             {
+            	"id": 2,
                 "title": "",
-                "Content": "",
-                "background": "",
-                "next": ""
+                "content": "",
+                "background": "assets/img/history-2.jpg"
             },
             {
+            	"id": 3,
                 "title": "",
-                "Content": "",
-                "background": "",
-                "next": ""
+                "content": "",
+                "background": "assets/img/history-3.jpg"
             },
             {
+            	"id": 4,
                 "title": "",
-                "Content": "",
-                "background": "",
-                "next": ""
+                "content": "",
+                "background": "assets/img/history-4.jpg"
             }
         ]
     }

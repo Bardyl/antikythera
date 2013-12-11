@@ -8,7 +8,31 @@
 	<link rel="stylesheet" href="css/history.css" />
 </head>
 <body>
-	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<div id="slide" style="background: url('assets/img/history-1.jpg') no-repeat center center;">
+		<h2>Titre de la slide 1</h2>
+		<p>Content, blablabla</p>
+		<a href="#" id="accessSlide" data-slide-number="2">Continuer &rarr;</a>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/history.js"></script>
+	<script>
+		slide.init({
+			sliding: function(slideContent){
+				$('#slide').fadeOut().attr('style', '');
+				$('#slide').attr('style', "background: url('"+slideContent.background+"') no-repeat center center");
+				$('#slide h2').html(slideContent.title);
+				$('#slide p').html(slideContent.content);
+				$('#slide a').data('slide-number', slideContent.id+1);
+				if(slideContent.id == 3){
+					$('#slide a').html('Découvrir la suite ->');
+				}
+				$('#slide').fadeIn();
+			}
+		});
+
+		$('#accessSlide').on('click', function(e){
+			slide.accessSlide(e, $(this).data('slideNumber'));
+		});
+	</script>
 </body>
 </html>
