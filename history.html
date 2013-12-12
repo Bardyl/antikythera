@@ -9,20 +9,84 @@
 	<link href="fonts/Museo100-Regular.otf" rel='stylesheet' type="text/css" />
 </head>
 <body>
-	<div id="slide" style="background: url('assets/img/history-2.gif') no-repeat center center; background-size:100% 100%">
+	<div id="slide">
 		<div id="slideContent">
-			<h2>87 avant J.C.</h2>
+	 		<h2>87 avant J.C.</h2>
 			<p>La machine merveilleuse est conservée à Corinthe jusqu’au pillage de la ville par les romains, menés par Marcellus. Elle est embarquée sur un bateau en partance pour Rome, mais une tempête détruit le navire, qui sombre dans les fonds marins au large de l’île d’Anticythère. Avec le bateau sombre la machine, qui semble perdue à tout jamais.</p>
-			<a href="#" id="accessSlide" data-slide-number="3">Continuer &rarr;</a>
 		</div>
 	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.2/TweenMax.min.js"></script>
+	<script src="js/layout.js"></script>
 	<script src="js/history.js"></script>
+	<script>
+		var slide = $('#slide');
+
+		slide.hide();
+
+		slide.append($('<img>').addClass('background').attr('src', 'assets/img/slide2/background.jpg'));
+
+		slide.append($('<img>').addClass('light1').attr('src', 'assets/img/slide2/lightning1.jpg'));
+		slide.append($('<img>').addClass('light2').attr('src', 'assets/img/slide2/lightning2.jpg'));
+		slide.append($('<img>').addClass('light3').attr('src', 'assets/img/slide2/lightning3.jpg'));
+
+		slide.append($('<img>').addClass('boat').addClass('light4').addClass('lighton').attr('src', 'assets/img/slide2/boat.png'));
+		slide.append($('<img>').addClass('boat').addClass('light5').attr('src', 'assets/img/slide2/boatLight.png'));
+
+		slide.append($('<img>').attr('src', 'assets/img/slide2/wave.png'));
+
+		slide.fadeIn(3000);
+
+		$('#slideContent h2').html($('#slideContent h2').text().replace(/(.)/g, "<span>$&</span>"));
+		$('#slideContent p').html($('#slideContent p').text().replace(/(.)/g, "<span>$&</span>"));
+
+		var tl = new TimelineLite();
+		tl.staggerFrom($('#slideContent h2 span'), 0.05, {autoAlpha:0, rotation:90}, 0.02);
+		tl.staggerFrom($('#slideContent p span'), 0.05, {autoAlpha:0, rotation:90}, 0.02);
+		$('#slideContent p').append('<a href="#" id="accessSlide" data-slide-number="3">Continuer &rarr;</a>');
+		tl.staggerFrom($('#slideContent a'), 0.4, {marginLeft:20, autoAlpha:0});
+
+		var seeLightning = function(){
+
+			$('img.light'+randomLightning).addClass('lighton');
+
+			if(randomLightning == 1 || randomLightning == 3){
+				$('img.light5').addClass('lighton');
+			}
+
+			setTimeout(function(){
+				$('img.light'+randomLightning).removeClass('lighton');
+			}, delayLightning);	
+
+		}
+
+		var delayLightning = Math.floor(Math.random()*600)+20;
+		var delayNoLightning = Math.floor(Math.random()*5000)+1000;
+		var randomLightning = Math.floor(Math.random()*3)+1;
+
+		setInterval(function(){
+			delayLightning = Math.floor(Math.random()*600)+70;
+			delayNoLightning = Math.floor(Math.random()*7000)+1000;
+			randomLightning = Math.floor(Math.random()*3)+1;
+			
+			seeLightning();
+			setTimeout(function(){
+				$('img.light5').removeClass('lighton');
+			}, delayLightning);
+			
+		}, delayNoLightning);
+
+		setInterval(function(){
+			$('img.boat').animate({left:'+=50px', top:'+=25px'}, 1500);
+			$('img.boat').animate({left:'-=50px', top:'-=25px'}, 1500);
+		}, 3000);
+
+	</script>
 	<script>
 		slide.init({
 			sliding: function(slideContent){
 				$('#slide').fadeOut().attr('style', '');
+
 				$('#slide').attr('style', "background: url('"+slideContent.background+"') no-repeat center center; background-size:auto 100%");
 				$('#slide h2').html(slideContent.title);
 				$('#slide p').html(slideContent.content);
