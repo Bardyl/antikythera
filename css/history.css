@@ -9,11 +9,22 @@ body {
 	background-position:center center;
 	background-size:100% auto;
 	background-repeat:none;
+	position: fixed; 
+	top: -50%; 
+	left: -50%; 
+	width: 200%; 
+	height: 200%;
 }
 
 #slide img {
-	position: absolute;
-	top:0; left:0;
+  	position: absolute; 
+  	top: 0; 
+  	left: 0; 
+  	right: 0; 
+  	bottom: 0; 
+  	margin: auto; 
+  	min-width: 50%;
+  	min-height: 50%;
 }
 
 .light1, .light2, .light3, .light4, .light5 {
@@ -32,9 +43,9 @@ body {
 
 #slideContent {
 	position: absolute;
-	left:10%;
-	width:65%;
-	top:8%;
+	left:30%;
+	width:32%;
+	top:29%;
 	z-index:999;
 }
 
