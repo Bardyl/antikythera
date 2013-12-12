@@ -1,7 +1,7 @@
 body {
 	width:100%;
-	height:100vh;
 	background: #000;
+	font-family: 'museo';
 }
 
 #slide {
@@ -14,6 +14,24 @@ body {
 
 #slide h2, #slide p {
 	color:#fff;
-	font-size: 60px;
+	margin:0;padding:0;
 	text-shadow:1px 1px 3px #000;
+}
+
+#slideContent {
+	text-align: justify;
+	position: relative;
+	left:10%;
+	width:65%;
+	top:8%;
+}
+
+#slideContent h2 {
+	font-size: 1.8em;
+	margin-bottom:.6em;
+}
+
+#slideContent p {
+	font-size: 1.4em;
+	line-height: 1.7em;
 }

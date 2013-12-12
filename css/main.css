@@ -1,5 +1,6 @@
 /*
     1. Reset
+    2. Fonts
 */
 
 /*-----------------------------------------------\
@@ -165,4 +166,13 @@ textarea {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+/*-----------------------------------------------\
+|               2. Fonts                         |
+\-----------------------------------------------*/
+
+@font-face {
+    font-family: 'museo';
+    src: url('../fonts/Museo100-Regular.otf') format('opentype');
 }
